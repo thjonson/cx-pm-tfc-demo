@@ -1,6 +1,6 @@
 
 locals {
-  # A list of objects with one object per instance.
+  # A list of objects with one object per instance......
   instances = flatten([
     for service_name_details in var.services : [
       for index in range(service_name_details.instance_count) : {
