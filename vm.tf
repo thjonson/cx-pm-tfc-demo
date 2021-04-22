@@ -153,37 +153,37 @@ resource "vsphere_virtual_machine" "vm" {
       # }
     }
 
-    connection {
-    type = "ssh"
-    user = var.os_user
-    # private_key = "file("${../../keys}/var.privatekey_filename")"
-    # private_key = file("../../keys/${var.privatekey_filename}")
-    password = "C!sc0123"
-    host = self.default_ip_address
-    agent = false
+#     connection {
+#     type = "ssh"
+#     user = var.os_user
+#     # private_key = "file("${../../keys}/var.privatekey_filename")"
+#     # private_key = file("../../keys/${var.privatekey_filename}")
+#     password = "C!sc0123"
+#     host = self.default_ip_address
+#     agent = false
 
-  }
-
-  
-  # provisioners - File 
-    #  variable src {
-    #    default = "../../apps/ansible/var.appname"
-    #  }
-  provisioner "file" {
-
-    source      = "../../apps/ansible/${lower(each.value.service_name)}"
-    destination = "/tmp/"
-
- }
-
+#   }
 
   
+#   # provisioners - File 
+#     #  variable src {
+#     #    default = "../../apps/ansible/var.appname"
+#     #  }
+#   provisioner "file" {
+
+#     source      = "../../apps/ansible/${lower(each.value.service_name)}"
+#     destination = "/tmp/"
+
+#  }
 
 
-provisioner "remote-exec" {
-    inline = each.value.install_commands
+  
+
+
+# provisioner "remote-exec" {
+#     inline = each.value.install_commands
     
-  }
+#   }
    
 
    
