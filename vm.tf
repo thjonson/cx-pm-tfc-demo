@@ -17,7 +17,7 @@ locals {
         num_cpus          = service_name_details.num_cpus
         memory            = service_name_details.memory
         # security_group_ids = split(",", service_name_details.securitygroupsctrl)
-        install_commands = split(";", service_name_details.install_commands)
+        #install_commands = split(";", service_name_details.install_commands)
 
       }
       
@@ -152,41 +152,6 @@ resource "vsphere_virtual_machine" "vm" {
       #   # ipv4_gateway = "10.0.0.1"
       # }
     }
-
-#     connection {
-#     type = "ssh"
-#     user = var.os_user
-#     # private_key = "file("${../../keys}/var.privatekey_filename")"
-#     # private_key = file("../../keys/${var.privatekey_filename}")
-#     password = "C!sc0123"
-#     host = self.default_ip_address
-#     agent = false
-
-#   }
-
-  
-#   # provisioners - File 
-#     #  variable src {
-#     #    default = "../../apps/ansible/var.appname"
-#     #  }
-#   provisioner "file" {
-
-#     source      = "../../apps/ansible/${lower(each.value.service_name)}"
-#     destination = "/tmp/"
-
-#  }
-
-
-  
-
-
-# provisioner "remote-exec" {
-#     inline = each.value.install_commands
-    
-#   }
-   
-
-   
 
 
 
