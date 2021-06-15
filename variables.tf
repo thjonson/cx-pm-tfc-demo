@@ -1,5 +1,4 @@
 variable "provider_name" {
-    type = "string"
     default = ""
 }
 
