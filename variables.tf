@@ -9,11 +9,6 @@ variable vsphere_user{}
 variable vsphere_password{}
 variable vsphere_server {}
 
-variable vm_instance_count {
-    type = number
-    default = 1
-}
-
 
 
 variable "appname" {
