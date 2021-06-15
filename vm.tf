@@ -110,7 +110,7 @@ resource "vsphere_virtual_machine" "vm" {
  
 
 
-  name             = "mfs_instance_${each.key}_${random_integer.priority.result}"
+  name             = "tfc_${each.key}_${random_integer.priority.result}"
   resource_pool_id = data.vsphere_resource_pool.pool[each.key].id
   datastore_id     = data.vsphere_datastore.datastore[each.key].id
 
