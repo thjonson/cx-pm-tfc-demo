@@ -113,7 +113,7 @@ resource "vsphere_virtual_machine" "vm" {
   name             = "tfc_${each.key}_${random_integer.priority.result}"
   resource_pool_id = data.vsphere_resource_pool.pool[each.key].id
   datastore_id     = data.vsphere_datastore.datastore[each.key].id
-
+  folder = "TrainingVMs-Test"
   num_cpus = each.value.num_cpus
   memory   = each.value.memory
   guest_id = data.vsphere_virtual_machine.template[each.key].guest_id
@@ -134,6 +134,9 @@ resource "vsphere_virtual_machine" "vm" {
       eagerly_scrub    = "${data.vsphere_virtual_machine.template[each.key].disks.0.eagerly_scrub}"
       thin_provisioned = "${data.vsphere_virtual_machine.template[each.key].disks.0.thin_provisioned}"
     }
+    
+    
+  
     
   clone {
       template_uuid = "${data.vsphere_virtual_machine.template[each.key].id}"
